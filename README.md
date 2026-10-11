@@ -28,6 +28,26 @@ L’ora arriva da Internet e si regola da sola, anche al cambio tra ora solare e
 - le altre librerie (WiFi, WebServer, Preferences, ArduinoOTA, ESPmDNS) sono già incluse nel core
 - scheda: **ESP32 Dev Module**, schema di partizione predefinito (lo sketch occupa circa l’80% dello spazio)
 
+## Collegamenti elettrici
+
+Scheda: **ESP32** (Dev Module). Pin verificati sullo sketch (`PIN_TOP 5`, `PIN_BOTTOM 18`, 256 LED per pannello, `NEO_GRB`).
+
+| ESP32 | Collegato a |
+|---|---|
+| **GPIO 5** | **DIN** pannello superiore (ora) — resistenza 330–470 Ω in serie consigliata |
+| **GPIO 18** | **DIN** pannello inferiore (data) — resistenza 330–470 Ω in serie consigliata |
+| **GND** | GND alimentatore e GND di entrambi i pannelli |
+| **5V/VIN** | +5V alimentatore (oppure ESP32 alimentato da USB) |
+
+| Alimentatore 5 V | Pannelli |
+|---|---|
+| +5V | 5V pannello superiore e 5V pannello inferiore |
+| GND | GND pannello superiore e GND pannello inferiore |
+
+- Le matrici sono cablate a **serpentina verticale** con il **pixel 0 in alto a sinistra**. Se le tue sono diverse, modifica la funzione `XY()` dello sketch.
+- Massa comune obbligatoria tra ESP32, pannelli e alimentatore.
+- Alimentatore 5 V da almeno **3–4 A** e condensatore da **1000 µF** tra 5V e GND vicino ai pannelli.
+
 ## Contenuto del repository
 
 | Percorso | Descrizione |
