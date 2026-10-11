@@ -1,0 +1,20 @@
+# configuration.yaml - sostituisci IP_OROLOGIO con l'indirizzo del tuo orologio
+rest:
+  - resource: http://IP_OROLOGIO/api/status
+    scan_interval: 30
+    sensor:
+      - name: "Orologio luminosita giorno"
+        value_template: "{{ value_json.bday }}"
+    binary_sensor:
+      - name: "Orologio display acceso"
+        value_template: "{{ value_json.on }}"
+      - name: "Orologio modalita notte"
+        value_template: "{{ value_json.night }}"
+
+rest_command:
+  orologio_accendi:
+    url: "http://IP_OROLOGIO/set?on=1"
+  orologio_spegni:
+    url: "http://IP_OROLOGIO/set?on=0"
+  orologio_luminosita:
+    url: "http://IP_OROLOGIO/set?bday={{ valore }}"
