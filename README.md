@@ -48,6 +48,9 @@ Scheda: **ESP32** (Dev Module). Pin verificati sullo sketch (`PIN_TOP 5`, `PIN_B
 - Massa comune obbligatoria tra ESP32, pannelli e alimentatore.
 - Alimentatore 5 V da almeno **3–4 A** e condensatore da **1000 µF** tra 5V e GND vicino ai pannelli.
 
+- I due pannelli sono **512 LED**: alla massima luminosità in bianco possono superare i 25 A. Lo sketch tiene la luminosità bassa, per questo bastano 3–4 A; se la alzi, dimensiona alimentatore (6–10 A) e cavi di alimentazione (almeno 0,75 mm²) di conseguenza.
+- Se l'ESP32 è alimentato dalla USB, **non** collegare anche il +5V dell'alimentatore al pin 5V/VIN (tieni solo il GND in comune).
+
 ## Contenuto del repository
 
 | Percorso | Descrizione |
